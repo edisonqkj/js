@@ -1,0 +1,43 @@
+<html>
+<body>
+<script type="text/javascript">
+var x=5,y=7;
+var s="hello!";
+t=s+x;
+z=x*y;
+document.write("<pre>x="+x+"\ny="+y+"\ns="+s+"\nt="+t+"\nz="+z+"</pre>");
+
+var score=61;
+document.write("<pre>score="+score+"\n</pre>");
+if(score>=60)
+	document.write("pass\n");
+else
+	document.write("fail\n");
+for(i=1;i<=10;i++)
+{
+	if(i==3) continue;
+	if(i==8) break;
+	document.write("i="+i+"<br/>");
+}
+function sub(a,b)
+{
+	return a-b;
+}
+var add=function(a,b)
+{
+	return a+b;
+}
+document.write("add(5,2)="+add(5,2)+" sub(7,2)="+sub(7,2)+"<br/>");
+var x;
+var friends= new Array();
+friends[0]="John";
+friends[1]="Mary";
+friends[2]="George";
+for(p in friends)
+{
+	document.write(p+":"+friends[p]+"<br/>");
+}
+
+</script>
+</body>
+</html>

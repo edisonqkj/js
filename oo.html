@@ -1,0 +1,36 @@
+<html>
+<body>
+	<script type="text/javascript">
+	function obj(){
+		this.x=3;
+		this["y"]=5;
+		this.sum=function(){return this.x+this.y;}
+	}
+	var o=new obj();
+	document.write("o['x']="+o['x']+" y="+o.y+" sum()="+o.sum()+"<br/>");
+
+	function Person(name,age){
+		this.name=name;
+		this.age=age;
+		this.toStr=function(){return "Person:name="+this.name+" age="+this.age;}
+	}
+	var john=new Person("John",40);
+	document.write("john.toStr()= "+john.toStr()+"<br/>");
+
+	function Student(name,age,grade){
+		this.prototype=Person;
+		this.prototype(name,age);
+		this.grade=grade;
+		this.toStr=function(){return "Student:name="+this.name+" age="+this.age+" grade="+this.grade;}
+	}
+	var tony=new Student("Tony",19,"Freshman");
+	document.write("tony.toStr()= "+tony.toStr()+"<br/>");
+
+	var array=[john,tony];
+	for(i in array)
+	{
+		document.write("array["+i+"].toStr()="+array[i].toStr()+"<br/>");
+	}
+	</script>
+</body>
+</html>
