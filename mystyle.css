@@ -1,0 +1,9 @@
+table {border-collapse: collapse;border: 1px solid #373737;}
+th {background-color: black;color: white;padding: 10px;margin: 10px;}
+td {padding: 10px;margin: 10px;}
+#topbar {background-color: gray; color: blue; padding: 10px; margin: 10px;}
+	.A {background-color: black; color: white; padding: 10px; margin: 10px;}
+	.B {background-color: blue; color: yellow; padding: 10px; margin: 10px;}
+
+	#topbar table a {color: purple;}
+	#topbar table h3, .A h3 {color: blue;}
