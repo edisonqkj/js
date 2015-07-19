@@ -1,0 +1,46 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<style type="text/css">
+	textarea {border: 2px solid #9f9f9f;}
+	</style>
+</head>
+<script type="text/javascript">
+function show(id){
+	var line=document.getElementById(id);
+	var text=line.innerHTML;
+	var showbox=document.getElementById('showbox');
+	showbox.innerText+="Click: "+text+"\n";
+
+	var tbox1=document.getElementById('t1');
+	tbox1.innerText="Click: "+text+"\n";
+}
+</script>
+<body>
+	<form>
+		<table width="95%" style="border-collapse:collapse;border:0px;">
+			<tr>
+				<td width="30%">
+					<ol style="width:100%;text-align:left;">
+						<li id="l1">
+							<input type="button" value="Line 1"onclick="javascript:show('l1');"/>
+						</li>
+						<li id="l2" onclick="javascript:show('l2');">Line 2(click here)</li>
+						<li id="l3" onclick="javascript:show('l3');">Line 3(click here)</li>
+						<li id="l4" onclick="javascript:show('l4');">Line 4(click here)</li>
+					</ol>
+				</td>
+				<td>
+					<div id="showbox" style="background-color:black;color:white;width:100%;height:300px;"></div>
+				</td>
+			</tr>
+			<tr>
+				<td width="30%">
+					<textarea id="t1" style="width:100%;height:100px;">
+					</textarea>
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
