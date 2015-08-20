@@ -1,0 +1,79 @@
+<html>
+<head>
+	<title>Chat Window</title>
+	<meta charset='utf-8'>
+	<style type="text/css">
+	.me {color:#ff0000;}
+	.other {color:#0000ff;}
+	.symbol {color:#a0a0a0;}
+	</style>
+</head>
+<script type="text/javascript">
+	var msgnum=0;
+	function showTime(){
+		updateTime();
+		setTimeout(showTime,1000);
+	}
+	function updateTime(){
+		var time=getTime();
+		// alert(time.second);
+
+		var tip=document.getElementById("tip");
+		var msgtip="Current Time: ";
+		msgtip+=time["hour"]+":"+time["minute"]+":"+time["second"];
+		tip.innerText=msgtip;
+		// alert(msgtip);
+	}
+	function getTime(){
+		var today=new Date();
+		return {"hour":today.getHours(),
+				"minute":today.getMinutes(),
+				"second":today.getSeconds()};
+	}
+	function getHistoryMsg(){
+		var aa=prompt();
+		alert(aa);
+		var randnum=Math.floor(Math.random()*(10+1));
+		for(i=0;i<randnum;i++){
+			showMsg("msgul");
+		}
+		if(randnum>0)
+			showSymbol("msgul");
+		else
+			;
+	}
+	function showMsg(id){
+		msgnum+=1;
+		var randnum=Math.floor(Math.random()*(1+1));
+		var type="";
+		if(randnum==1)
+			type="me";
+		else
+			type="other";
+
+		var msgtab=document.getElementById(id);
+		var msglist=msgtab.innerHTML;
+		var time=getTime();
+		var timemark=time["hour"]+":"+time["minute"]+":"+time["second"];
+
+		msglist+='<li class="'+type+'">'+timemark+' this is #'+msgnum.toString()+' message.';
+		msglist+='<input type="button" id="msg'+String.valueOf(msgnum)+'" value="x" onclick=\'javascript:showMsg("msgul")\';></li>';
+		// alert(msglist);
+		msgtab.innerHTML=msglist;
+	}
+	function showSymbol(id){
+		var msgtab=document.getElementById(id);
+		var msglist=msgtab.innerHTML;
+		msglist+='<li class="symbol">--------- Above History Messages ---------</li>';
+		msgtab.innerHTML=msglist;
+	}
+</script>
+<body onload='javascript:showTime();getHistoryMsg();'>
+	<div><p id="tip">ddd</p></div>
+	<div><ul id='msgul' style='width:100%'>
+<!-- 		<li class="me">this is #1 message.<input type="button" id="msg1" value="x" onclick='javascript:showMsg("msgul");'></li> -->
+	</ul></div>
+	<div>
+	</div>
+</body>
+</html>
