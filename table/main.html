@@ -6,16 +6,19 @@
 	<style type="text/css">
 	.title{background-color: #a0a0a0}
 	</style>
+	<script type="text/javascript" src="./operate.js">
+	</script>
 </head>
 <body>
 	<form>
-		Go to:  <select name='option' id='mselect'>
-			<option value='op1'>1</option>
-			<option value='op2'>2</option>
-			<option value='op3'>3</option>
+		Go to:  <select name='option' id='mselect' onchange="javascript:Locate(this.id);">
+			<option id='option0'>0</option>
 		</select>
+		<input type="button" onclick="javascript:Add();" value="Add Record">
+		<input type="button" onclick="javascript:ClearSelection();" value="Clear Selection">
+		<input type="button" onclick="javascript:Remove();" value="Remove Record"></br>
 		<table class='catalog' id='mlist' style='width:100%'>
-			<tr class='title'>
+			<tr class='title' id="record0">
 				<td>ID</td>
 				<td>Name</td>
 				<td>Gender</td>
