@@ -1,0 +1,29 @@
+<html>
+<base target="_self">
+<head>
+	<script type="text/javascript" src="operate.js">
+	</script>
+</head>
+<body onkeydown="if (event.keyCode==116){reload.click()}">
+	<a id="reload" href="input.html" style="display:none">reload...</a>
+	<form id="info" onsubmit="javascript:checkSubmit(this.id);">
+		<div>
+			<p>Name:</p><input type="text" name="name"/>
+		</div>
+		<div>
+			<p>Gender:</p><select name="gender"><option>Male</option><option>Female</option></select>
+		</div>
+		<div>
+			<p>Phone:</p><input type="text" name="phone"/>
+		</div>
+		<div>
+			<p>Registration:</p><input type="text" name="reg"/>
+		</div>
+		<div>
+			<p></p>
+			<input type="submit" value="Submit"/>
+			<input type="button" value="Cancel" onclick="window.close();"/>
+		</div>
+	</form>
+</body>
+</html>

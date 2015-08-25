@@ -9,20 +9,22 @@ function Init(){
 }
 function Add(){
 	recnum+=1;
-	// var res=window.showModalDialog("input.html");
+	var res=window.showModalDialog("input.html",window);
+	// alert(res.length);
+
 	var tb=document.getElementById("mlist");
 	var row=document.createElement("tr");
 	row.id="record"+recnum.toString();
 	var id=document.createElement("td");
 	id.innerText=recnum.toString();
 	var name=document.createElement("td");
-	name.innerText="Edison";
+	name.innerText=res[0];//"Edison";
 	var gender=document.createElement("td");
-	gender.innerText="Male";
+	gender.innerText=res[1];//"Male";
 	var phone=document.createElement("td");
-	phone.innerText="15905155080";
+	phone.innerText=res[2];//"15905155080";
 	var reg=document.createElement("td");
-	reg.innerText="2000";
+	reg.innerText=res[3];//"2000";
 
 	row.appendChild(id);
 	row.appendChild(name);
@@ -62,4 +64,24 @@ function Locate(id){
 	var index=select.options[select.selectedIndex].text;
 	var row=document.getElementById("record"+index);
 	row.style.backgroundColor="#0000ff";
+}
+function checkSubmit(id){
+	var frm=document.getElementById(id);
+	var name=frm.name.value;
+	var gender=frm.gender.value;
+	var phone=frm.phone.value;
+	var reg=frm.reg.value;
+	if(name!="" && gender!="" && 
+	   phone!="" && reg!=""){
+		if(confirm("Are you sure to submit?")){
+			var result=[name,gender,phone,reg];
+			window.returnValue=result;
+			window.close();
+		}
+		else{
+			;
+		}
+	}else{
+		alert("Please fill the blank!");
+	}
 }
