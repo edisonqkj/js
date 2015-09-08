@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Canvas Test</title>
+	<meta charset='utf-8'>
+	<style type="text/css">
+	canvas {border:1px solid black;}
+	/*#tutorial {border: 2px solid black;}*/
+	</style>
+	<script type="text/javascript">
+	function draw(){
+		var canvas=document.getElementById('tutorial');
+		canvas.style.width='500px';
+		if(canvas.getContext){
+			var ctx=canvas.getContext('2d');
+			ctx.fillStyle='rgb(200,0,0)';
+			ctx.fillRect(10,10,55,50);
+
+			ctx.fillStyle='rgba(0,0,200,0.5)';
+			ctx.fillRect(30,30,55,50);
+		}
+		else{
+			alert('canvas is not supported in this browser.');
+		}
+	}
+	</script>
+</head>
+<body onload='draw();'>
+	<canvas id='tutorial'>
+	</canvas>
+</body>
+</html>
