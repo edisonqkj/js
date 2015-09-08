@@ -10,6 +10,10 @@ function Init(){
 function Add(){
 	recnum+=1;
 	var res=window.showModalDialog("input.html",window);
+	//for chrome
+	if(!res){
+		res = window.returnValue;
+	}
 	// alert(res.length);
 
 	var tb=document.getElementById("mlist");
@@ -37,6 +41,37 @@ function Add(){
 	option.innerText=recnum.toString();
 	option.id="option"+recnum.toString();
 	document.getElementById("mselect").appendChild(option);
+}
+function Addnew(){
+	function addcell(row,text){
+		var cell=row.insertCell(-1);
+		cell.appendChild(document.createTextNode(text));
+	}
+	var res=window.showModalDialog("input.html",window);
+	//for chrome
+	if(!res){
+		res = window.returnValue;
+	}
+	var table=document.createElement('table')	;
+	var thead=table.createTHead();
+	var row=thead.insertRow(-1);
+	var label=['ID','Name','Gender','Phone','Registration'];
+	var len=label.length;
+
+	for(var i=0;i<len;i++){
+		addcell(row,label[i]);
+	}
+
+	var tbody=document.createElement('tbody');
+	table.appendChild(tbody);
+
+	row=tbody.insertRow(-1);
+	row.className=(row.rowIndex%2)?'odd':'even';
+	addcell(row,row.rowIndex);
+	for(var v in res){
+		addcell(row,res[v]);
+	}
+	document.body.appendChild(table);
 }
 function Remove(){
 	var select=document.getElementById("mselect");
@@ -75,7 +110,13 @@ function checkSubmit(id){
 	   phone!="" && reg!=""){
 		if(confirm("Are you sure to submit?")){
 			var result=[name,gender,phone,reg];
-			window.returnValue=result;
+			// window.returnValue=result;
+			if (window.opener){
+				//for chrome
+				window.opener.returnValue = result;
+			}else{
+				window.returnValue = result;
+			}
 			window.close();
 		}
 		else{
