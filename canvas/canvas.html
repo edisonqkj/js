@@ -10,7 +10,8 @@
 	<script type="text/javascript">
 	function draw(){
 		var canvas=document.getElementById('tutorial');
-		canvas.style.width='500px';
+		// canvas.style.width='100%';
+		// canvas.style.height='300px';
 		if(canvas.getContext){
 			var ctx=canvas.getContext('2d');
 			ctx.fillStyle='rgb(200,0,0)';
@@ -18,15 +19,49 @@
 
 			ctx.fillStyle='rgba(0,0,200,0.5)';
 			ctx.fillRect(30,30,55,50);
+
+			ctx.fillStyle='rgba(0,200,0,1)';
+			ctx.strokeRect(50,50,55,50);
+
+			ctx.fillStyle='rgba(0,200,0,1)';
+			ctx.strokeRect(50,50,55,50);
+
+			ctx.fillStyle='rgb(255,100,0)';
+			ctx.fillRect(150,10,60,60);
+			ctx.clearRect(170,30,20,20);
+
+			ctx.beginPath();
+			ctx.moveTo(175,150);
+			ctx.lineTo(140,75);
+			ctx.lineTo(180,90);
+			// ctx.fill();
+			ctx.closePath();
+			ctx.stroke();
+
+			// ctx.arc(x, y, radius, startAngle, endAngle, anticlockwise);
+			ctx.beginPath();
+			ctx.arc(360,100,30,0,Math.PI/4,true);
+			ctx.stroke();
+			ctx.beginPath();
+			ctx.fillStyle='rgb(200,0,0)';
+			ctx.arc(360,100,30,0,Math.PI/4,false);
+			// ctx.fill();
+			ctx.stroke();
 		}
 		else{
 			alert('canvas is not supported in this browser.');
 		}
 	}
+	function line(){
+		var canvas=document.getElementById('tutorial');
+		if(canvas.getContext){
+			alert('click');
+		}
+	}
 	</script>
 </head>
 <body onload='draw();'>
-	<canvas id='tutorial'>
+	<canvas id='tutorial' width='500px' height='300px' onclick='line();'>
 	</canvas>
 </body>
 </html>
