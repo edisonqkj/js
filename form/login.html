@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+<!--
+#login{
+width:420px;
+height:200px;
+background-image:url(pic/login.gif);
+background-repeat:no-repeat;
+font-size:12px;
+margin:0px auto;
+margin-top:100px;
+padding-top:55px;
+padding-left:30px;
+}
+.input{width:130px;height:18px;border:1px solid #003300;}
+.input1{height:16px; width:40px;border:1px solid #003300;}
+.input2{height:25;width:65px;}
+p{
+line-height:40px;
+margin-top:2px;
+height:100%;
+}
+
+-->
+</style>
+<script language="javascript">
+<!--
+	function check(){
+		var  username	=	document.getElementById('username').value;
+		var  password	=	document.getElementById('password').value;
+		var  ver		=	document.getElementById('ver').value;
+		if(!username.match(/^w{3,12}/) || username.length>15){
+			alert('用户名由3-12个字符组成!');
+			form1.username.select();
+			return false;
+		}
+		if(!password.match(/^w{6,10}/) || password.length>15 ){
+			alert('密码由6-10个字符组成!');
+			form1.password.select();
+			return false;
+		}
+		if(!ver.match(/^d{4}/)){
+			alert('验证码必须由4位数字组成!');
+			form1.ver.select();
+			return false;
+		}
+	}
+-->
+</script>
+</head>
+<body>  <form name="form1" method="post" action="login.php">
+<div id="login">
+
+      <table width="85%"  border="0">
+        <tr>
+          <td width="24%" height="25" align="right">管理帐号:</td>
+          <td colspan="2"><input name="username" type="text" class="input" id="username"></td>
+          <td width="22%"></td>
+        </tr>
+        <tr>
+          <td height="25" align="right">密码:</td>
+          <td colspan="2"><input name="password" type="password" class="input" id="password"></td>
+          <td> </td>
+        </tr>
+        <tr>
+          <td height="25" align="right">验证码:</td>
+          <td width="14%"><input name="ver" type="text" class="input1" id="ver" size="5"></td>
+          <td width="40%"><img  src="/inc/ver.php" onclick="this.src='/inc/ver.php';" /></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td height="25">           </td>
+          <td colspan="2"><input name="Submit" type="submit" class="input2"  onclick="javascript:return check();window.close();" value="登 录" target="_parent" >
+          <input name="Submit" type="reset" class="input2" value="清 除"></td>
+          <td> </td>
+        </tr>
+      </table>
+  </div> 
+</form>
+</body>
+</html>
+
+
+</td>
+	  </tr>
+	</table>

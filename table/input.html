@@ -1,8 +1,22 @@
 <html>
 <base target="_self">
 <head>
-	<script type="text/javascript" src="operate.js">
+	<script type="text/javascript" src="http://127.0.0.1/operate.js">
 	</script>
+	<link rel="stylesheet" type="text/css" href="http://libs.cartocdn.com/cartodb.js/v3/3.15/themes/css/cartodb.css">
+	<script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
+	<script>
+// get the viz.json url from the CartoDB Editor
+// - click on visualize
+// - create new visualization
+// - make visualization public
+// - click on publish
+// - go to API tab
+
+window.onload = function() {
+  cartodb.createVis('map', 'https://edisonqkj.cartodb.com/api/v2/viz/e5c9e56a-e4a4-11e3-92f9-0e230854a1cb/viz.json');
+}
+</script>
 </head>
 <body onkeydown="if (event.keyCode==116){reload.click()}">
 	<a id="reload" href="input.html" style="display:none">reload...</a>
@@ -25,5 +39,6 @@
 			<input type="button" value="Cancel" onclick="window.close();"/>
 		</div>
 	</form>
+	<div id="map"></div>
 </body>
 </html>

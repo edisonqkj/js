@@ -45,7 +45,7 @@ var server=http.createServer(function(req,res){
 			return;
 		}
 		res.writeHead(200,{'Content-Type':'text/html'});
-		file+=getList();
+		//file+=getList();
 		res.write(file);
 		// console.log(file);
 		res.end();
