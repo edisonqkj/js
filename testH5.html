@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+	#btn1 {color:#0000ff;}
+	#btnimg {
+		background:url("icon/length.png") no-repeat;
+		width:54px;
+		height:54px;
+	}
+	:-webkit-full-screen #text{
+	  width: 100%;
+	  height: 100%;
+	}
+	:-webkit-full-screen #myvideo{
+      width: 100%;
+      height: 100%;
+    }
+	</style>
+	<script type="text/javascript" src='func/src1.js'>
+	</script>
+	<script type="text/javascript">
+	function printSrcPath1(){
+		alert("btn1");
+	}
+	function addbtn(){
+		var btn=document.createElement('input');
+		btn.name="btn";
+		btn.type="button";
+		btn.value="btn";
+		var ta=document.getElementById("text");
+
+		btn.addEventListener('click',function(){
+			// printSrcPath1();
+			ta.innerText="Clicked";
+		},false);
+		btn.addEventListener('keydown',function(e){
+			ta.innerText="KeyCode: "+e.keyCode;
+			if(e.keyCode==13)
+				toggleFullScreen();
+		},false);
+		document.body.appendChild(btn);
+	}
+	</script>
+</head>
+<body onload='load();'>
+	<button id="btn1" text="hello" onclick="printSrcPath1();">hello</button>
+	<a href="javascript:alert('clicked');"><img src="icon/save.png"></a>
+	<input type="button" name="btn2" id="btnimg" onclick="addbtn();"/>
+	<button id="fs">full screen</button></br>
+	<textarea id="text"></textarea></br>
+	<video controls src="E:/Download/Game.of.Thrones.S06E01.mp4"
+		  width="640" height="360" id="myvideo">
+</body>
+</html>
